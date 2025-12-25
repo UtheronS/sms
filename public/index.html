@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<title>Temporary SMS - MVP</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<link rel="stylesheet" href="/style.css" />
+	</head>
+	<body>
+		<main class="container">
+			<h1>Temporary SMS (MVP)</h1>
+
+			<section id="auth-section" class="card">
+				<h2>Auth</h2>
+				<div id="auth-forms">
+					<div class="row">
+						<input id="email" placeholder="Email" />
+						<input id="password" type="password" placeholder="Password" />
+					</div>
+					<div class="row">
+						<button id="btn-register">Register</button>
+						<button id="btn-login">Login</button>
+					</div>
+				</div>
+				<div id="user-info" style="display: none">
+					<div>Logged as <span id="me-email"></span></div>
+					<div>Balance: $<span id="me-balance"></span></div>
+					<button id="btn-logout">Logout</button>
+				</div>
+			</section>
+
+			<section id="rent-section" class="card" style="display: none">
+				<h2>Rent a number</h2>
+				<div class="row">
+					<label
+						>Minutes:
+						<select id="rent-minutes">
+							<option value="5">5</option>
+							<option value="10">10</option>
+							<option value="15">15</option>
+							<option value="30">30</option>
+						</select>
+					</label>
+					<button id="btn-get-number">Get number</button>
+				</div>
+
+				<div id="rental-area" style="display: none; margin-top: 12px">
+					<div>Number: <strong id="rental-number"></strong></div>
+					<div>Price: $<span id="rental-price"></span></div>
+					<div>Ends at: <span id="rental-end"></span></div>
+					<div>Status: <span id="rental-status"></span></div>
+					<div>Timer: <span id="rental-timer"></span></div>
+					<div>
+						<button id="btn-cancel-rental">Cancel</button>
+					</div>
+
+					<h3>Incoming SMS</h3>
+					<div id="sms-list" class="sms-list"></div>
+				</div>
+			</section>
+
+			<section class="card">
+				<h2>Demo provider webhook (dev)</h2>
+				<p>Симулировать входящее SMS:</p>
+				<div class="row">
+					<input
+						id="demo-provider-rental-id"
+						placeholder="provider_rental_id"
+					/>
+					<input id="demo-from" placeholder="from number" />
+					<input id="demo-text" placeholder="text" />
+					<button id="btn-send-webhook">Send webhook</button>
+				</div>
+				<p>Подсказка: provider_rental_id возвращается при выдаче номера.</p>
+			</section>
+		</main>
+
+		<script src="/app.js"></script>
+	</body>
+</html>
